@@ -9,6 +9,6 @@
 <body>
 <h2> name : ${name}</h2>
 <h2> message : ${message}</h2>
-<br><a href='gugu.do'>구구단</a>
+<br><a href='/gugu.do'>구구단</a>
 </body>
 </html>
