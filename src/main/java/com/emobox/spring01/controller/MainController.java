@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.emobox.spring01.model.dto.PointDTO;
@@ -80,4 +81,47 @@ public class MainController {
 		// ModelAndView(url, key, value)
 		return new ModelAndView("test/mav_result","map",map);
 	}
+	
+	// Ajax 비동기
+	@RequestMapping("ajax.do")
+	public String ajax() {
+		return "test/ajax";
+	}
+	
+	
+	// URL (페이지로) 넘어가는게 아니고, 데이터 자체로 넘겨주는 것이다.
+	// 그리고 사전 설정이 필요한게 있다.
+	
+	// {"key":"value"}
+	// {"name":"냉장고","price":500000}
+	@RequestMapping("background.do")
+	public @ResponseBody ProductDTO background() {
+		ProductDTO dto = new ProductDTO("냉장고", 500000);
+		return dto;
+	}
+	
+	
+	@RequestMapping("login.do")
+	public String login() {
+		return "test/login";
+	}
+	
+	
+	@RequestMapping("login_result.do")
+	public String login_result(@RequestParam String id,@RequestParam String pw, Model model) {
+		
+		String result="";
+		
+		if(id.equals("park") && pw.equals("1234")) {
+			result = "환영합니다.";
+		} else {
+			result="아이디 또는 비밀번호가 틀렸습니다.";
+		}
+		
+		model.addAttribute("result", result);
+		return "test/login_result";
+	}
+	
+	
+	
 }
