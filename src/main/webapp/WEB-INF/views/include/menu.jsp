@@ -7,4 +7,6 @@
 <a href="/mav.do">Model And View</a>
 <a href="/ajax.do">비동기 호출1</a>
 <a href="/login.do">비동기 호출2</a>
+<a href="/ajax_gugu.do">비동기 구구단</a>
+<a href="/member/list.do">회원관리</a>
 <hr>

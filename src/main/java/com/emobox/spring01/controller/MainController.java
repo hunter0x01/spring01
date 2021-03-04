@@ -124,4 +124,23 @@ public class MainController {
 	
 	
 	
+	@RequestMapping("ajax_gugu.do")
+	public String ajax_gugu() {
+		return "test/ajax_gugu";
+	}
+	
+	@RequestMapping("ajax_gugu_result.do")
+	public String ajax_gugu_result(@RequestParam(defaultValue="3") int dan, Model model) {
+		String result = "";
+		for(int i=1; i<=9 ; i++) {
+			result += dan + "x" + i + "=" + dan * i + "<br>";
+		}
+		
+		model.addAttribute("result", result);
+		return "test/ajax_gugu_result";
+	}
+	
+	// http://hisoftlab.com/4432
+	
+	
 }
